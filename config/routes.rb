@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'pages/index'
-
-  root to: 'pages#index'
+ 
+  root to: 'chatroom#index'
+  
   get 'login', to: 'sessions#new'
 
 
