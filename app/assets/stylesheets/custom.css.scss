@@ -4,3 +4,15 @@
   height: 450px;
   padding: 2rem;
 }
+
+#messages {
+  height: 15em;
+  overflow-y: auto;
+}
+
+//we want to remove the button in the input box where we type the message
+.input {
+  button {
+    display: none;
+  }
+}

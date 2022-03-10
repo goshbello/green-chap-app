@@ -17,6 +17,28 @@
 //= require semantic-ui
 //= require_tree .
 
+// this function will always scroll the chat box area always to the bottom so that all messages are show well
+scroll_bottom = function(){
+  if ($('#messages').length > 0) {
+    $('#messages').scrollTop($('#messages')[0].scrollHeight);
+  }
+}
+
+// this function will send our message when we click ENTER on the keyboard. Jquery keyCode for ENTER is 13
+submit_message = function(){
+  $('#message_body').on('keydown', function(e){
+    if (e.keyCode == 13) {
+      $('button').click();
+      e.target.value = "";  // we clear the input area after we click enter to send our message
+    };
+  });
+};
+
 $(document).on('turbolinks:load', function() {
   $('.ui.dropdown').dropdown();
+  $('.message .close').on('click', function() {
+    $(this).closest('.message').transition('fade');
+  });
+  submit_message();
+  scroll_bottom();
 })
